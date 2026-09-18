@@ -85,7 +85,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#F5F2EA]/85">
-            Four disciplines, one dataset — every survey, model, and design
+            Four disciplines, one dataset every survey, model, and design
             we produce for a project draws on the same underlying spatial
             data, so nothing gets re-measured or re-mapped between stages.
           </p>

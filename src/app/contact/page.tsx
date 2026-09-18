@@ -61,7 +61,7 @@ export default function ContactPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#F5F2EA]/85">
             Reach out for a survey quote, structural consultation, or to
-            discuss a project — our team responds within one business day.
+            discuss a project our team responds within one business day.
           </p>
         </div>
       </section>
