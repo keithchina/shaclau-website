@@ -117,7 +117,7 @@ const projects: Project[] = [
       '/images/projects/setting-out/01.jpg',
       '/images/projects/setting-out/02.jpg',
       '/images/projects/setting-out/03.jpg',
-      '/images/projects/setting-out/07.jpg',
+      '/images/projects/setting-out/09.jpg',
       
     ],
   },
@@ -138,6 +138,7 @@ const projects: Project[] = [
       '/images/projects/level-survey/01.jpg',
       '/images/projects/level-survey/02.jpg',
       '/images/projects/level-survey/03.jpg',
+      '/images/projects/level-survey/07.jpg',
     ],
   },
 ];
