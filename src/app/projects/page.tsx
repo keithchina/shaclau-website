@@ -135,10 +135,10 @@ const projects: Project[] = [
     outcome:
       'Verified, accurate level data delivered throughout construction, giving the site team confidence in cut depths, grading, and compaction as work progressed.',
     images: [
-      '/images/projects/level-survey/01.jpg',
-      '/images/projects/level-survey/02.jpg',
-      '/images/projects/level-survey/03.jpg',
-      '/images/projects/setting-out/07.jpg',
+      '/images/projects/topographical-bomet/01.jpg',
+      '/images/projects/topographical-bomet/02.jpg',
+      '/images/projects/topographical-bomet/03.jpg',
+      '/images/projects/topographical-bomet/04.jpeg',
     ],
   },
 ];
