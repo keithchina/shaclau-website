@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Category = 'Surveying' | 'Survey & GIS' | 'Structural' | 'Land Advisory';
+type Category = 'Surveying' | 'Survey & GIS' | 'Structural' | 'Land Advisory' | 'Surveying and Structural Engineering' | 'Surveying and Layout Design';
 
 type Project = {
   id: string;
@@ -24,7 +24,7 @@ const projects: Project[] = [
     id: 'suam-ahp',
     title: 'Suam Border Post Affordable Housing Programme (AHP)',
     location: 'Maili Tatu, Suam, Trans-Nzoia County',
-    category: 'Surveying and Structral Engineering',
+    category: 'Surveying and Structural Engineering',
     client: 'National Government — Ministry of Lands, Public Works, Housing and Urban Development',
     timeframe: 'Ongoing',
     challenge:
@@ -149,6 +149,8 @@ const categories: ('All' | Category)[] = [
   'Survey & GIS',
   'Structural',
   'Land Advisory',
+  'Surveying and Structural Engineering',
+  'Surveying and Layout Design',
 ];
 
 export default function ProjectsPage() {
