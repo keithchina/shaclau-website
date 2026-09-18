@@ -135,7 +135,7 @@ const projects: Project[] = [
     outcome:
       'Verified, accurate level data delivered throughout construction, giving the site team confidence in cut depths, grading, and compaction as work progressed.',
     images: [
-      '/images/projects/leveling/01.jpg',
+      '/images/projects/leveling/01.jpeg',
       '/images/projects/leveling/02.jpg',
       '/images/projects/leveling/03.jpg',
       '/images/projects/leveling/07.jpeg',

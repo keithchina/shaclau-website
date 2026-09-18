@@ -66,7 +66,7 @@ export default function OrgChart() {
             Leadership & Technical Hierarchy
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[#2B2B28]/80">
-            Shaclau Limited operates through four specialized technical divisions under executive management oversight, ensuring every cadastral survey, structural design, and spatial dataset adheres to professional standards.
+            Shaclau Enterprise Ltd operates through four specialized technical divisions under executive management oversight, ensuring every cadastral survey, structural design, and spatial dataset adheres to professional standards.
           </p>
         </div>
 
