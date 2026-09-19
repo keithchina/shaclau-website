@@ -18,7 +18,7 @@ export default function CoverageMapSection() {
           Our headquarters &amp; coverage
         </h2>
         <p className="mt-3 max-w-xl text-[#2B2B28]/80">
-          Based at Ambwere Plaza, Kitale — serving Trans-Nzoia, the North
+          Based at Ambwere Plaza, Kitale serving Trans-Nzoia, the North
           Rift, Western Kenya, and nationwide.
         </p>
 

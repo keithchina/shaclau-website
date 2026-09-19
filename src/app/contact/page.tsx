@@ -1,11 +1,26 @@
+'use client';
+
+import dynamic from 'next/dynamic';
 import ContactForm from '@/components/ContactForm';
-import ContactMap from '@/components/ContactMap';
+
+// Dynamically import ContactMap with SSR disabled to prevent Leaflet window errors
+const ContactMap = dynamic(() => import('@/components/LocationMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-96 w-full animate-pulse rounded-sm border border-[#1B2A38]/15 bg-[#FAFAF7] flex items-center justify-center text-xs font-mono uppercase tracking-wider text-[#1B2A38]/50">
+      Loading interactive map...
+    </div>
+  ),
+});
+
+const officeCoordinates = '1.0149396439395928,35.00065476779693';
+const googleMapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${officeCoordinates}`;
 
 const details = [
   {
     label: 'Address',
     value: 'Ambwere Plaza, Kitale\nTrans-Nzoia County, Kenya',
-    href: undefined,
+    href: googleMapsDirectionsUrl,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -61,7 +76,7 @@ export default function ContactPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#F5F2EA]/85">
             Reach out for a survey quote, structural consultation, or to
-            discuss a project our team responds within one business day.
+            discuss a project—our team responds within one business day.
           </p>
         </div>
       </section>
@@ -107,7 +122,13 @@ export default function ContactPage() {
                   </div>
                 );
                 return item.href ? (
-                  <a key={item.label} href={item.href} className="block">
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="block"
+                  >
                     {content}
                   </a>
                 ) : (
