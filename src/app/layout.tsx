@@ -3,6 +3,7 @@ import { Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} font-sans antialiased`}>
         <Navbar />
         {children}
+        <Footer />
         <WhatsAppButton />
       </body>
     </html>
