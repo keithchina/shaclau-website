@@ -27,7 +27,7 @@ const team: TeamMember[] = [
   },
   { name: 'Newton Saisi', title: 'Surveyor', image: '/images/team/newton.jpeg' },
   { name: 'Pamela Atieno', title: 'Surveyor', image: '/images/team/pamela.jpeg' },
-  { name: 'Robert Wanyonyi', title: 'Surveyor', image: '/images/team/gen.jpeg' },
+  //{ name: 'Robert Wanyonyi', title: 'Surveyor', image: '/images/team/gen.jpeg' },
   { name: 'Sharlin Mmboga', title: 'Surveyor', image: '/images/team/sharlin.jpeg' }, 
 ];
 
