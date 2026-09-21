@@ -4,7 +4,7 @@ type EquipmentItem = {
 };
 
 const hardware: EquipmentItem[] = [
-  { name: 'Hi-Target RTK GNSS Receivers', category: 'GPS/GNSS Positioning' },
+  { name: 'RTK GNSS Receivers', category: 'Hi-Target, Foif, Stonex GPS/GNSS Positioning' },
   { name: 'Total Stations', category: 'Precision Angle & Distance Measurement' },
   { name: 'UAV Survey Drones', category: 'Aerial Mapping & Photogrammetry' },
 ];
