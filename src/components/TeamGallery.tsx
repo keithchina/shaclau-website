@@ -25,7 +25,7 @@ const team: TeamMember[] = [
     image: '/images/team/keith.png',
     portfolio: 'https://china-keith-portfolio-j2gj.vercel.app/'
   },
-  { name: 'Lydia Logit', title: 'Secretary', image: '/images/team/lydia.jpeg' },
+  { name: 'Lydia Logit', title: 'Secretary', image: '/images/team/Lydia.jpeg' },
   { name: 'Newton Saisi', title: 'Surveyor', image: '/images/team/newton.jpeg' },
   { name: 'Pamela Atieno', title: 'Surveyor', image: '/images/team/pamela.jpeg' },
   //{ name: 'Robert Wanyonyi', title: 'Surveyor', image: '/images/team/gen.jpeg' },
