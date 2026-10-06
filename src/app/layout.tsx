@@ -5,6 +5,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -97,6 +98,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsAppButton />
+        <Analytics />
         <Script
           id="tYoSBnkCqPDQ-Kl0HTCBR"
           strategy="afterInteractive"
