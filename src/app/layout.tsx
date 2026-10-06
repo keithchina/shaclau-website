@@ -18,8 +18,31 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.shaclauenterpriseltd.co.ke"),
   title: "Shaclau Enterprise Ltd",
   description: "Land Surveying, GIS, and Structural Engineering across Kenya.",
+  openGraph: {
+    title: "Shaclau Enterprise Ltd",
+    description: "Precision land surveying, structural engineering, and geospatial intelligence across Kenya.",
+    url: "https://www.shaclauenterpriseltd.co.ke",
+    siteName: "Shaclau Enterprise Ltd",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Shaclau Enterprise Ltd — Precision Land Surveying, Structural Engineering & Geospatial Intelligence",
+      },
+    ],
+    locale: "en_KE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shaclau Enterprise Ltd",
+    description: "Precision land surveying, structural engineering, and geospatial intelligence across Kenya.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({
