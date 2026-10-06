@@ -6,6 +6,42 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Shaclau Enterprise Ltd",
+  image: "https://www.shaclauenterpriseltd.co.ke/og-image.jpg",
+  url: "https://www.shaclauenterpriseltd.co.ke",
+  telephone: "+254759388987",
+  email: "shaclaultd@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Ambwere Plaza",
+    addressLocality: "Kitale",
+    addressRegion: "Trans-Nzoia County",
+    addressCountry: "KE",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 1.0149396439395928,
+    longitude: 35.00065476779693,
+  },
+  areaServed: [
+    "Trans-Nzoia County",
+    "North Rift",
+    "Western Kenya",
+    "Kenya",
+  ],
+  sameAs: [
+    "https://www.facebook.com/shaclaultd/",
+    "https://instagram.com/shaclaultd",
+    "https://x.com/shaclaultd",
+    "https://www.tiktok.com/@shaclaultd",
+  ],
+  description:
+    "Land surveying, GIS and spatial analytics, structural engineering, and land advisory services across Kenya.",
+};
+
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
@@ -53,6 +89,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navbar />
         {children}
         <Footer />
