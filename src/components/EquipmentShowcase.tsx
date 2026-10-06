@@ -28,7 +28,7 @@ export default function EquipmentShowcase() {
         </h2>
         <p className="mt-3 max-w-xl text-[#F5F2EA]/75">
           Every deliverable is backed by survey-grade instruments and
-          industry-standard software the same tools used on large-scale
+          industry-standard software—the same tools used on large-scale
           national infrastructure projects.
         </p>
 
@@ -41,12 +41,14 @@ export default function EquipmentShowcase() {
             {hardware.map((item) => (
               <div
                 key={item.name}
-                className="rounded-sm border border-[#F5F2EA]/10 bg-[#F5F2EA]/5 p-5"
+                className="group rounded-sm border border-[#F5F2EA]/10 bg-[#F5F2EA]/5 p-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#B08D57] hover:bg-[#F5F2EA]/10 hover:shadow-lg"
               >
-                <p className="font-[family-name:var(--font-space-grotesk)] font-semibold text-[#F5F2EA]">
+                <p className="font-[family-name:var(--font-space-grotesk)] font-semibold text-[#F5F2EA] transition-colors duration-300 group-hover:text-[#B08D57]">
                   {item.name}
                 </p>
-                <p className="mt-1 text-xs text-[#F5F2EA]/60">{item.category}</p>
+                <p className="mt-1 text-xs text-[#F5F2EA]/60 group-hover:text-[#F5F2EA]/80">
+                  {item.category}
+                </p>
               </div>
             ))}
           </div>
@@ -61,12 +63,14 @@ export default function EquipmentShowcase() {
             {software.map((item) => (
               <div
                 key={item.name}
-                className="rounded-sm border border-[#F5F2EA]/10 bg-[#F5F2EA]/5 p-5"
+                className="group rounded-sm border border-[#F5F2EA]/10 bg-[#F5F2EA]/5 p-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#B08D57] hover:bg-[#F5F2EA]/10 hover:shadow-lg"
               >
-                <p className="font-[family-name:var(--font-space-grotesk)] font-semibold text-[#F5F2EA]">
+                <p className="font-[family-name:var(--font-space-grotesk)] font-semibold text-[#F5F2EA] transition-colors duration-300 group-hover:text-[#B08D57]">
                   {item.name}
                 </p>
-                <p className="mt-1 text-xs text-[#F5F2EA]/60">{item.category}</p>
+                <p className="mt-1 text-xs text-[#F5F2EA]/60 group-hover:text-[#F5F2EA]/80">
+                  {item.category}
+                </p>
               </div>
             ))}
           </div>

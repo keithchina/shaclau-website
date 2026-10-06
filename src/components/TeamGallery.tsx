@@ -45,31 +45,33 @@ export default function TeamGallery() {
 
         <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
           {team.map((member) => (
-            <div key={member.name} className="text-center">
-              <div className="relative mx-auto aspect-square w-full max-w-[180px] overflow-hidden rounded-full border-2 border-[#B08D57]/30 bg-[#1B2A38]/5">
+            <div key={member.name} className="group text-center">
+              {/* IMAGE CONTAINER WITH OVERFLOW-HIDDEN & HOVER BORDER */}
+              <div className="relative mx-auto aspect-square w-full max-w-[180px] overflow-hidden rounded-full border-2 border-[#B08D57]/30 bg-[#1B2A38]/5 transition-colors duration-300 group-hover:border-[#B08D57]">
                 {member.image ? (
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     sizes="180px"
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center">
-                    <span className="font-[family-name:var(--font-space-grotesk)] text-3xl font-semibold text-[#1B2A38]/30">
+                    <span className="font-[family-name:var(--font-space-grotesk)] text-3xl font-semibold text-[#1B2A38]/30 transition-transform duration-300 group-hover:scale-110">
                       {member.name.charAt(0)}
                     </span>
                   </div>
                 )}
               </div>
-              <p className="mt-4 font-[family-name:var(--font-space-grotesk)] font-semibold text-[#1B2A38]">
+
+              <p className="mt-4 font-[family-name:var(--font-space-grotesk)] font-semibold text-[#1B2A38] transition-colors duration-300 group-hover:text-[#B08D57]">
                 {member.portfolio ? (
                   <a
                     href={member.portfolio}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors hover:text-[#B08D57] underline decoration-[#B08D57]/50 underline-offset-4"
+                    className="underline decoration-[#B08D57]/50 underline-offset-4 transition-colors hover:text-[#B08D57]"
                   >
                     {member.name}
                   </a>

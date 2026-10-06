@@ -4,16 +4,27 @@ import ServicesGrid from '@/components/ServicesGrid';
 import EquipmentShowcase from '@/components/EquipmentShowcase';
 import CoverageMapSection from '@/components/CoverageMapSection';
 import Testimonials from '@/components/Testimonials';
+import AnimatedSection from '@/components/AnimatedSection';
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Hero />
-      <MetricsBar />
-      <ServicesGrid />
-      <EquipmentShowcase />
-      <CoverageMapSection />
-      <Testimonials />
+      <AnimatedSection>
+        <MetricsBar />
+      </AnimatedSection>
+      <AnimatedSection>
+        <ServicesGrid />
+      </AnimatedSection>
+      <AnimatedSection>
+        <EquipmentShowcase />
+      </AnimatedSection>
+      <AnimatedSection>
+        <CoverageMapSection />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Testimonials />
+      </AnimatedSection>
     </main>
   );
 }

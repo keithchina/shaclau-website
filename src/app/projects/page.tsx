@@ -3,8 +3,15 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
-type Category = 'Surveying' | 'Survey & GIS' | 'Structural' | 'Land Advisory' | 'Surveying and Structural Engineering' | 'Surveying and Layout Design';
+type Category =
+  | 'Surveying'
+  | 'Survey & GIS'
+  | 'Structural'
+  | 'Land Advisory'
+  | 'Surveying and Structural Engineering'
+  | 'Surveying and Layout Design';
 
 type Project = {
   id: string;
@@ -28,9 +35,9 @@ const projects: Project[] = [
     client: 'National Government — Ministry of Lands, Public Works, Housing and Urban Development',
     timeframe: 'Ongoing',
     challenge:
-      'Under Kenya\u2019s Affordable Housing Programme (Boma Yangu), the State Department for Housing and Urban Development needed the Suam Border Post site accurately set out on the ground before construction of new housing and related social and physical infrastructure could begin.',
+      'Under Kenya’s Affordable Housing Programme (Boma Yangu), the State Department for Housing and Urban Development needed the Suam Border Post site accurately set out on the ground before construction of new housing and related social and physical infrastructure could begin.',
     approach:
-      'Our survey team carried out full site set-out using RTK GNSS positioning — placing beacons at boundary corners and building lines, and verifying cut-slope levels with a total station and leveling staff — directly from the architect\u2019s design, so the construction crew could break ground with a reliable reference grid.',
+      'Our survey team carried out full site set-out using RTK GNSS positioning — placing beacons at boundary corners and building lines, and verifying cut-slope levels with a total station and leveling staff — directly from the architect’s design, so the construction crew could break ground with a reliable reference grid.',
     outcome:
       'Accurate plot and building layouts set out on-site under Contract No. MLPWHUD/SDHUD/AHP/580/2024-2025, allowing phased construction to proceed without costly re-measurement or boundary disputes.',
     images: [
@@ -68,11 +75,11 @@ const projects: Project[] = [
     client: 'Private Client',
     timeframe: 'Done',
     challenge:
-      'A private landowner needed a parcel\u2019s official land use reclassified in order to proceed with new development plans for the site.',
+      'A private landowner needed a parcel’s official land use reclassified in order to proceed with new development plans for the site.',
     approach:
-      'We carried out site verification and boundary confirmation using RTK GNSS, secured Land Control Board consent, and liaised directly with the county planning office to guide the application through the statutory change-of-use approval process on the client\u2019s behalf.',
+      'We carried out site verification and boundary confirmation using RTK GNSS, secured Land Control Board consent, and liaised directly with the county planning office to guide the application through the statutory change-of-use approval process on the client’s behalf.',
     outcome:
-      'Cleared the path for the client\u2019s new development by securing the land use reclassification required to proceed.',
+      'Cleared the path for the client’s new development by securing the land use reclassification required to proceed.',
     images: [
       '/images/projects/change-of-use/01.jpg',
       '/images/projects/change-of-use/02.jpg',
@@ -92,7 +99,7 @@ const projects: Project[] = [
     approach:
       'Our survey team carried out an RTK topographic survey capturing ground levels, contours, and site features — including boreholes, tree cover, and existing structures — then processed the data into a full contour map and CAD basemap.',
     outcome:
-      'Delivered a titled topographic map (Kimondo/Kimondo/BLK14, Parcel 5) at 1:2,500 scale, giving the client\u2019s design team a reliable ground-truth basis for further planning.',
+      'Delivered a titled topographic map (Kimondo/Kimondo/BLK14, Parcel 5) at 1:2,500 scale, giving the client’s design team a reliable ground-truth basis for further planning.',
     images: [
       '/images/projects/topographical-bomet/01.jpg',
       '/images/projects/topographical-bomet/02.jpg',
@@ -118,7 +125,6 @@ const projects: Project[] = [
       '/images/projects/setting-out/02.jpg',
       '/images/projects/setting-out/03.jpg',
       '/images/projects/setting-out/09.jpg',
-      
     ],
   },
   {
@@ -162,10 +168,15 @@ export default function ProjectsPage() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <main className="min-h-screen bg-[#F5F2EA] text-[#2B2B28]">
+    <main className="min-h-screen bg-[#F5F2EA] text-[#2B2B28] overflow-hidden">
       {/* Hero */}
       <section className="bg-[#1B2A38] px-6 py-24 text-[#F5F2EA] sm:py-32 border-b border-[#B08D57]/30">
-        <div className="mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mx-auto max-w-5xl"
+        >
           <p className="font-mono text-xs uppercase tracking-widest text-[#B08D57]">
             Our Work
           </p>
@@ -176,21 +187,21 @@ export default function ProjectsPage() {
             A selection of surveying, GIS, and land advisory work delivered
             for government and private clients across Kenya.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Filter bar */}
-      <section className="border-b border-[#1B2A38]/10 bg-[#F5F2EA]">
+      <section className="sticky top-0 z-10 border-b border-[#1B2A38]/10 bg-[#F5F2EA]/95 backdrop-blur-md">
         <div className="mx-auto max-w-6xl px-6 py-6">
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 ${
                   activeCategory === cat
-                    ? 'bg-[#1B2A38] text-[#F5F2EA]'
-                    : 'bg-[#FAFAF7] text-[#2B2B28]/70 border border-[#1B2A38]/15 hover:border-[#1B2A38]/40'
+                    ? 'bg-[#1B2A38] text-[#F5F2EA] shadow-sm'
+                    : 'bg-[#FAFAF7] text-[#2B2B28]/70 border border-[#1B2A38]/15 hover:border-[#1B2A38]/40 hover:bg-white'
                 }`}
               >
                 {cat}
@@ -200,88 +211,96 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Projects List */}
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="space-y-20">
-          {filtered.map((project, index) => (
-            <article
-              key={project.id}
-              className="grid grid-cols-1 gap-8 border-t border-[#1B2A38]/10 pt-14 first:border-t-0 first:pt-0 lg:grid-cols-12"
-            >
-              {/* Images */}
-              <div className="lg:col-span-6">
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  {project.images.map((src, i) => (
-                    <div
-                      key={src}
-                      className={`relative overflow-hidden rounded-sm border border-[#1B2A38]/10 bg-white ${
-                        project.images.length === 1 ? 'sm:col-span-2 aspect-[4/3]' : 'aspect-square'
-                      } ${
-                        project.images.length % 2 === 1 && i === 0 ? 'sm:col-span-2 aspect-[16/9]' : ''
-                      }`}
-                    >
-                      <Image
-                        src={src}
-                        alt={`${project.title} — photo ${i + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                  ))}
+        <AnimatePresence mode="wait">
+          <motion.div key={activeCategory} className="space-y-20">
+            {filtered.map((project, index) => (
+              <motion.article
+                key={project.id}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="group grid grid-cols-1 gap-8 border-t border-[#1B2A38]/10 pt-14 first:border-t-0 first:pt-0 lg:grid-cols-12"
+              >
+                {/* Images Container */}
+                <div className="lg:col-span-6">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    {project.images.map((src, i) => (
+                      <div
+                        key={src}
+                        className={`relative overflow-hidden rounded-sm border border-[#1B2A38]/10 bg-white shadow-sm transition-all duration-300 group-hover:border-[#B08D57]/40 ${
+                          project.images.length === 1 ? 'sm:col-span-2 aspect-[4/3]' : 'aspect-square'
+                        } ${
+                          project.images.length % 2 === 1 && i === 0 ? 'sm:col-span-2 aspect-[16/9]' : ''
+                        }`}
+                      >
+                        <Image
+                          src={src}
+                          alt={`${project.title} — photo ${i + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Details */}
-              <div className="lg:col-span-6">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#B08D57]">
-                    0{index + 1} · {project.category}
-                  </span>
-                  {project.timeframe && (
-                    <span className="rounded-full border border-[#1B2A38]/15 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-[#2B2B28]/60">
-                      {project.timeframe}
+                {/* Project Details */}
+                <div className="lg:col-span-6">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="font-mono text-xs uppercase tracking-widest text-[#B08D57]">
+                      0{index + 1} · {project.category}
                     </span>
-                  )}
-                </div>
+                    {project.timeframe && (
+                      <span className="rounded-full border border-[#1B2A38]/15 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-[#2B2B28]/60">
+                        {project.timeframe}
+                      </span>
+                    )}
+                  </div>
 
-                <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-2xl font-semibold text-[#1B2A38] leading-tight">
-                  {project.title}
-                </h2>
-                <p className="mt-1 text-sm text-[#2B2B28]/70">
-                  {project.location} · {project.client}
-                </p>
+                  <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-2xl font-semibold text-[#1B2A38] leading-tight transition-colors duration-300 group-hover:text-[#B08D57]">
+                    {project.title}
+                  </h2>
+                  <p className="mt-1 text-sm text-[#2B2B28]/70">
+                    {project.location} · {project.client}
+                  </p>
 
-                <div className="mt-6 space-y-5">
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#1B2A38]/50 mb-1">
-                      Challenge
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#2B2B28]/85">
-                      {project.challenge}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#1B2A38]/50 mb-1">
-                      Our Approach
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#2B2B28]/85">
-                      {project.approach}
-                    </p>
-                  </div>
-                  <div className="rounded-sm border-l-4 border-l-[#3D5C46] bg-[#FAFAF7] p-4 border-y border-r border-y-[#1B2A38]/10 border-r-[#1B2A38]/10">
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#1B2A38]/50 mb-1">
-                      Outcome
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#1B2A38] font-medium">
-                      {project.outcome}
-                    </p>
+                  <div className="mt-6 space-y-5">
+                    <div>
+                      <p className="font-mono text-[10px] uppercase tracking-wider text-[#1B2A38]/50 mb-1">
+                        Challenge
+                      </p>
+                      <p className="text-sm leading-relaxed text-[#2B2B28]/85">
+                        {project.challenge}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-mono text-[10px] uppercase tracking-wider text-[#1B2A38]/50 mb-1">
+                        Our Approach
+                      </p>
+                      <p className="text-sm leading-relaxed text-[#2B2B28]/85">
+                        {project.approach}
+                      </p>
+                    </div>
+
+                    {/* Outcome Box */}
+                    <div className="rounded-sm border-l-4 border-l-[#3D5C46] bg-[#FAFAF7] p-4 border-y border-r border-y-[#1B2A38]/10 border-r-[#1B2A38]/10 transition-all duration-300 hover:border-l-[#B08D57] hover:shadow-sm">
+                      <p className="font-mono text-[10px] uppercase tracking-wider text-[#1B2A38]/50 mb-1">
+                        Outcome
+                      </p>
+                      <p className="text-sm leading-relaxed text-[#1B2A38] font-medium">
+                        {project.outcome}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {filtered.length === 0 && (
           <p className="py-20 text-center text-[#2B2B28]/60">
@@ -290,8 +309,14 @@ export default function ProjectsPage() {
         )}
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-5xl px-6 py-20 text-center">
+      {/* CTA Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto max-w-5xl px-6 py-20 text-center"
+      >
         <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-semibold text-[#1B2A38]">
           Have a project in mind?
         </h2>
@@ -302,12 +327,12 @@ export default function ProjectsPage() {
         <div className="mt-8">
           <Link
             href="/contact"
-            className="inline-block rounded-sm bg-[#B08D57] px-6 py-3 font-medium text-[#1B2A38] transition-colors hover:bg-[#c49f68]"
+            className="inline-block rounded-sm bg-[#B08D57] px-6 py-3 font-medium text-[#1B2A38] transition-all duration-300 hover:bg-[#c49f68] hover:-translate-y-0.5 hover:shadow-md"
           >
             Start a Conversation
           </Link>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }

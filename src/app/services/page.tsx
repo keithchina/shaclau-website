@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 type Service = {
   id: string;
@@ -20,7 +23,7 @@ const services: Service[] = [
       'Land Subdivision and mutation surveys',
       'Boundary surveys and beacon placement',
       'Cadastral and boundary verification surveys',
-      'Land Combinatation (Amalgamation) surveys',
+      'Land Combination (Amalgamation) surveys',
       'Title deed processing and survey support',
       'Lease extension and renewal surveys',
       'Sectional Property Survey',
@@ -31,7 +34,7 @@ const services: Service[] = [
   },
   {
     id: 'gis',
-    title: 'Geographic Information Systems (GIS) ',
+    title: 'Geographic Information Systems (GIS)',
     tag: 'GIS Services',
     summary: 'Spatial data turned into maps and models that inform real decisions.',
     body: 'We build custom spatial databases and analysis for transport planning, utility mapping, and terrain modeling — from raw survey and satellite data through to finished cartographic layouts and interactive WebGIS tools. Deliverables range from a single A0 map layout to a full digital elevation model of a project area.',
@@ -73,7 +76,7 @@ const services: Service[] = [
     summary: 'Guidance through subdivision, title, and land-use compliance.',
     body: 'Subdividing, developing, or formalizing land in Kenya involves survey work, paperwork, and planning approval in roughly equal measure. We advise landowners and developers through all three — from initial subdivision planning through title processing support and physical land-use compliance — so the legal and spatial sides of a project stay aligned.',
     included: [
-      'Spatial and Land Use Planning Planning',
+      'Spatial and Land Use Planning',
       'Development Control and Compliance Review',
       'Zoning Regulations and Land Use Assessment',
       'Environmental and GIS Integration',
@@ -84,9 +87,15 @@ const services: Service[] = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#F5F2EA] text-[#2B2B28]">
+    <main className="min-h-screen bg-[#F5F2EA] text-[#2B2B28] overflow-hidden">
+      {/* Hero Header */}
       <section className="bg-[#1B2A38] px-6 py-24 text-[#F5F2EA] sm:py-32 border-b border-[#B08D57]/30">
-        <div className="mx-auto max-w-5xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mx-auto max-w-5xl"
+        >
           <p className="font-mono text-xs uppercase tracking-widest text-[#B08D57]">
             What We Do
           </p>
@@ -94,20 +103,25 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#F5F2EA]/85">
-            Four disciplines, one dataset every survey, model, and design
+            Four disciplines, one dataset. Every survey, model, and design
             we produce for a project draws on the same underlying spatial
             data, so nothing gets re-measured or re-mapped between stages.
           </p>
-        </div>
+        </motion.div>
       </section>
 
+      {/* Services List */}
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <div className="space-y-16">
+        <div className="space-y-20">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={service.id}
               id={service.id}
-              className="grid grid-cols-1 gap-8 border-t border-[#1B2A38]/10 pt-12 first:border-t-0 first:pt-0 lg:grid-cols-12"
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="grid grid-cols-1 gap-8 border-t border-[#1B2A38]/10 pt-16 first:border-t-0 first:pt-0 lg:grid-cols-12"
             >
               <div className="lg:col-span-4">
                 <p className="font-mono text-xs text-[#B08D57] font-medium">
@@ -126,26 +140,34 @@ export default function ServicesPage() {
                   {service.body}
                 </p>
 
-                <div className="mt-6 rounded-sm border-l-4 border-l-[#3D5C46] bg-[#FAFAF7] p-5 border-y border-r border-y-[#1B2A38]/10 border-r-[#1B2A38]/10">
-                  <p className="font-mono text-[10px] uppercase text-[#1B2A38]/60 font-semibold tracking-wider mb-3">
+                {/* Included Box with Hover Animation */}
+                <div className="group mt-6 rounded-sm border-l-4 border-l-[#3D5C46] bg-[#FAFAF7] p-6 border-y border-r border-y-[#1B2A38]/10 border-r-[#1B2A38]/10 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-l-[#B08D57] hover:shadow-md">
+                  <p className="font-mono text-[10px] uppercase text-[#1B2A38]/60 font-semibold tracking-wider mb-4 transition-colors duration-300 group-hover:text-[#B08D57]">
                     What&apos;s Included
                   </p>
-                  <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                     {service.included.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-[#2B2B28]/85">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#B08D57]" aria-hidden="true" />
+                      <li key={item} className="flex items-start gap-2.5 text-sm text-[#2B2B28]/85">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B08D57] transition-transform duration-300 group-hover:scale-125" aria-hidden="true" />
                         {item}
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-20 text-center">
+      {/* Consultation CTA */}
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto max-w-5xl px-6 py-20 text-center"
+      >
         <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-semibold text-[#1B2A38]">
           Not sure which service fits your project?
         </h2>
@@ -156,18 +178,18 @@ export default function ServicesPage() {
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             href="/contact"
-            className="rounded-sm bg-[#B08D57] px-6 py-3 font-medium text-[#1B2A38] transition-colors hover:bg-[#c49f68]"
+            className="rounded-sm bg-[#B08D57] px-6 py-3 font-medium text-[#1B2A38] transition-all duration-300 hover:bg-[#c49f68] hover:-translate-y-0.5 hover:shadow-md"
           >
             Request a Consultation
           </Link>
           <Link
             href="/projects"
-            className="rounded-sm border border-[#1B2A38]/30 px-6 py-3 font-medium text-[#1B2A38] transition-colors hover:border-[#1B2A38]"
+            className="rounded-sm border border-[#1B2A38]/30 px-6 py-3 font-medium text-[#1B2A38] transition-all duration-300 hover:border-[#1B2A38] hover:bg-[#1B2A38]/5 hover:-translate-y-0.5"
           >
             See Completed Projects
           </Link>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }
