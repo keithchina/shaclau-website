@@ -28,7 +28,7 @@ export default function EquipmentShowcase() {
         </h2>
         <p className="mt-3 max-w-xl text-[#F5F2EA]/75">
           Every deliverable is backed by survey-grade instruments and
-          industry-standard software — the same tools used on large-scale
+          industry-standard software the same tools used on large-scale
           national infrastructure projects.
         </p>
 
